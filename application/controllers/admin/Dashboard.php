@@ -9,7 +9,7 @@ class Dashboard extends User_Controller {
         $this->load->model([
             'users_model',
             'facilities_model',
-            // 'practices_model',
+            'practices_model',
         ]);
         $this->db->query(
             'SET SESSION sql_mode =
@@ -24,14 +24,15 @@ class Dashboard extends User_Controller {
 	public function index()
     {
         $this->data['about']        = ( file_exists( './uploads/profil/about.html' ) ) ? file_get_contents( './uploads/profil/about.html' ) : '';        
+        $this->data['map']          = ( file_exists( './uploads/profil/map.html' ) ) ? file_get_contents( './uploads/profil/map.html' ) : '';        
         $this->data['working_hours']= ( file_exists( './uploads/profil/working_hours.html' ) ) ? file_get_contents( './uploads/profil/working_hours.html' ) : '';        
         $this->data['hours_of_rest']= ( file_exists( './uploads/profil/hours_of_rest.html' ) ) ? file_get_contents( './uploads/profil/hours_of_rest.html' ) : '';        
         $this->data['email']        = ( file_exists( './uploads/profil/email.html' ) ) ? file_get_contents( './uploads/profil/email.html' ) : '';        
         $this->data['address']      = ( file_exists( './uploads/profil/address.html' ) ) ? file_get_contents( './uploads/profil/address.html' ) : '';        
 
-        $this->data['kategori']     = 0;
-        $this->data['arsip']        = 0;
-        $this->data['users']        = 0;
+        $this->data['users']    = count( $this->users_model->users()->result() );
+        $this->data['fasilitas']= count( $this->facilities_model->facilities()->result() );
+        $this->data['praktikum']= count( $this->practices_model->practices( NULL, 1)->result() );
         
         $this->data['page'] = 'Beranda';
         $this->render('admin/dashboard');
@@ -101,6 +102,7 @@ class Dashboard extends User_Controller {
 
         $this->form_validation->set_rules('email', 'Email', 'required');   
         $this->form_validation->set_rules('address', 'Alamat', 'required');   
+        $this->form_validation->set_rules('map', 'Peta', 'required');   
 
         $alert = 'error';
         $message = 'Gagal Mengubah Kontak! <br> Silahkan isi semua inputan!';
@@ -108,6 +110,7 @@ class Dashboard extends User_Controller {
         {
             $email = $this->input->post('email');
             $address = $this->input->post('address');
+            $map = $this->input->post('map');
 
             $alert = 'warning';
             $message = 'Gagal Mengubah Kontak!';
@@ -116,8 +119,11 @@ class Dashboard extends User_Controller {
             {
                 if( file_put_contents( './uploads/profil/address.html', $address ) )
                 {
-                    $alert = 'success';
-                    $message = 'Berhasil Mengubah Kontak!';
+                    if( file_put_contents( './uploads/profil/map.html', $map ) )
+                    {
+                        $alert = 'success';
+                        $message = 'Berhasil Mengubah Kontak!';
+                    }
                 }
             }
         }

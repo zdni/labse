@@ -18,6 +18,7 @@
   <script src="<?= base_url('assets/') ?>plugins/datatables-buttons/js/buttons.print.min.js"></script>
   <script src="<?= base_url('assets/') ?>plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
   <script src="<?= base_url('assets/') ?>plugins/chart.js/Chart.min.js"></script>
+  <script src="https://unpkg.com/leaflet@1.9.2/dist/leaflet.js" integrity="sha256-o9N1jGDZrf5tS+Ft4gbIK7mYMipq9lqpVJ91xHSyKhg=" crossorigin=""></script>
   
   <script>
     if( '<?= $this->session->flashdata('alert') ?>' == 'success' ) Swal.fire( 'Berhasil!', '<?= $this->session->flashdata('message') ?>', 'success' );
@@ -46,6 +47,9 @@
       let year = date.getFullYear();
       spanYear.text(year);
     });
+  </script>
+  <script>
+    
   </script>
 
 </body>

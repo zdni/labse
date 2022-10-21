@@ -97,10 +97,10 @@
                       <label for="">Level User</label>
                       <input type="text" class="form-control" name="role_name" id="role_name" value="<?= $data->role_name ?>" disabled>
                     </div>
-                    <?php if(isset($data->position_name)):?>
+                    <?php if(isset($data->position_id)):?>
                     <div class="form-group">
                       <label for="">Posisi</label>
-                      <input type="text" class="form-control" name="position_name" id="position_name" value="<?= $data->position_name ?>" disabled>
+                      <input type="text" class="form-control" name="position_name" id="position_name" value="<?= $positions[$data->position_id] ?>" disabled>
                     </div>
                     <?php endif;?>
                     <?php if(isset($data->email)):?>

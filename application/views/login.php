@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="<?= base_url('assets/') ?>plugins/icheck-bootstrap/icheck-bootstrap.min.css">
   <link rel="stylesheet" href="<?= base_url('assets/') ?>dist/css/adminlte.min.css">
   <link rel="stylesheet" href="<?= base_url('assets/') ?>plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css">
-  <link rel="icon" href="<?= base_url('assets/img/logo.png') ?>">
+  <link rel="icon" href="<?= base_url('assets/img/uho.png') ?>">
 </head>
 <body class="hold-transition login-page">
   <div class="login-box">

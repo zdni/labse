@@ -34,8 +34,27 @@ class Hr_model extends CI_Model {
     public function hr( $id = NULL )
     {
         $this->db->select( $this->_table . '.*' );
+        $this->db->select( 'users.name AS user_name' );
+        $this->db->select( 'users.image AS user_image' );
+        $this->db->select( 'positions.name AS position_name' );
+        $this->db->join(
+            'positions', 
+            'positions.id = hr.position_id',
+            'join'
+        );
+        $this->db->join(
+            'users', 
+            'users.id = hr.user_id',
+            'join'
+        );
         if( $id ) $this->db->where( $this->_table . '.id', $id);
         return $this->db->get( $this->_table );
+    }
+
+    public function user_by_position( $position_id = NULL )
+    {
+        if( $position_id ) $this->db->where( $this->_table . '.position_id', $position_id);
+        return $this->hr();
     }
 }
 

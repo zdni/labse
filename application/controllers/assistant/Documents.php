@@ -33,7 +33,8 @@ class Documents extends Assistant_Controller {
     public function tambah()
     {
         $this->form_validation->set_rules('name', 'Nama', 'required');
-        $this->form_validation->set_rules('type', 'Jumlah', 'required');
+        $this->form_validation->set_rules('type', 'Tipe', 'required');
+        $this->form_validation->set_rules('description', 'Deskripsi', 'required');
 
         $alert = 'error';
         $message = 'Gagal Menambah Data Dokumen! <br> Silahkan isi semua inputan!';
@@ -41,9 +42,11 @@ class Documents extends Assistant_Controller {
         {
             $name           = $this->input->post('name');
             $type           = $this->input->post('type');
+            $description    = $this->input->post('description');
 
             $data['name']           = $name;
             $data['type']           = $type;
+            $data['description']    = $description;
 
             if( $_FILES['file']['name'] ) {
                 $uploaded_data  = $this->upload_file( $name . ' ' . time()  );
@@ -71,7 +74,8 @@ class Documents extends Assistant_Controller {
     public function ubah()
     {
         $this->form_validation->set_rules('name', 'Nama', 'required');
-        $this->form_validation->set_rules('type', 'Jumlah', 'required');
+        $this->form_validation->set_rules('type', 'Tipe', 'required');
+        $this->form_validation->set_rules('description', 'Deskripsi', 'required');
 
         $alert = 'error';
         $message = 'Gagal Mengubah Data Arsip! <br> Silahkan isi semua inputan!';
@@ -80,9 +84,11 @@ class Documents extends Assistant_Controller {
             $id             = $this->input->post('id');
             $name           = $this->input->post('name');
             $type           = $this->input->post('type');
+            $description    = $this->input->post('description');
 
             $data['name']           = $name;
             $data['type']           = $type;
+            $data['description']    = $description;
             
             if( $_FILES['file']['name'] ) {
                 $uploaded_data  = $this->upload_file( $name . ' ' . time()  );

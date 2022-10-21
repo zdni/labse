@@ -39,6 +39,7 @@
                       <th>No.</th>
                       <th>Nama</th>
                       <th>Jumlah</th>
+                      <th>Tahun Pengadaan</th>
                       <th>Keadaan</th>
                       <th>Gambar</th>
                       <th>Aksi</th>
@@ -49,6 +50,7 @@
                           <td><?= $number ?></td>
                           <td><?= $data->name ?></td>
                           <td><?= $data->qty ?></td>
+                          <td><?= $data->year ?></td>
                           <td><?= $data->state ?></td>
                           <td>
                             <img src="<?= base_url('uploads/fasilitas/') . $data->image ?>" alt="" width="60">

@@ -26,7 +26,7 @@
                 <span class="info-box-icon bg-success"><i class="fas fa-book"></i></span>
                 <div class="info-box-content">
                   <span class="info-box-text">Data Fasilitas</span>
-                  <span class="info-box-number"><?= $arsip ?></span>
+                  <span class="info-box-number"><?= $fasilitas ?></span>
                 </div>
               </div>
             </div>
@@ -35,7 +35,7 @@
                 <span class="info-box-icon bg-info"><i class="fas fa-th"></i></span>
                 <div class="info-box-content">
                   <span class="info-box-text">Total Praktikum</span>
-                  <span class="info-box-number"><?= $kategori ?></span>
+                  <span class="info-box-number"><?= $praktikum ?></span>
                 </div>
               </div>
             </div>
@@ -99,6 +99,10 @@
                     <div class="form-group">
                       <label for="">Alamat</label>
                       <textarea name="address" id="address" class="form-control"><?= $address ?></textarea>
+                    </div>
+                    <div class="form-group">
+                      <label for="">Peta</label>
+                      <input type="text" name="map" id="map" class="form-control" value="<?= $map ?>">
                     </div>
                   </div>
                   <div class="card-footer">

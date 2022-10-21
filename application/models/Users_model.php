@@ -51,7 +51,7 @@ class Users_model extends CI_Model {
         $this->db->select( 'hr.position_id AS position_id' );
         $this->db->select( 'hr.email AS email' );
         $this->db->select( 'hr.phone AS phone' );
-        $this->db->select( '(SELECT positions.name FROM positions JOIN hr ON hr.position_id = positions.id) AS position_name ' );
+        // $this->db->select( '(SELECT positions.name FROM hr JOIN positions ON hr.position_id = positions.id) AS position_name ' );
         $this->db->join(
             'roles', 
             'roles.id = users.role_id',
@@ -63,6 +63,18 @@ class Users_model extends CI_Model {
             'left'
         );
         return $this->db->get( $this->_table );
+    }
+
+    public function users_by_role( $role_id = NULL )
+    {
+        if( $role_id ) $this->db->where( $this->_table . '.role_id', $role_id);
+        return $this->users();
+    }
+
+    public function users_by_position( $position_id = NULL )
+    {
+        if( $position_id ) $this->db->where( $this->_table . '.position_id', $position_id);
+        return $this->users();
     }
 }
 

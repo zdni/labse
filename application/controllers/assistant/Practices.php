@@ -24,6 +24,7 @@ class Practices extends Assistant_Controller {
 	public function index()
     {
         $this->data['datas']    = $this->practices_model->practices()->result();
+        $this->data['status']   = ['Sembunyikan', 'Tampilkan'];
         
         $this->data['page'] = 'Jadwal Praktikum';
         $this->render('admin/practices');
@@ -33,7 +34,7 @@ class Practices extends Assistant_Controller {
     {
         $this->form_validation->set_rules('name', 'Nama', 'required');
         $this->form_validation->set_rules('time', 'Waktu Pelaksaan', 'required');
-        $this->form_validation->set_rules('lecture', 'Dosen Pengampu', 'required');
+        $this->form_validation->set_rules('main_lecture', 'Dosen Pengampu', 'required');
         $this->form_validation->set_rules('description', 'Deskripsi', 'required');
 
         $alert = 'error';
@@ -42,13 +43,17 @@ class Practices extends Assistant_Controller {
         {
             $name               = $this->input->post('name');
             $time               = $this->input->post('time');
-            $lecture            = $this->input->post('lecture');
+            $main_lecture       = $this->input->post('main_lecture');
+            $second_lecture     = $this->input->post('second_lecture');
             $description        = $this->input->post('description');
+            $status             = $this->input->post('status');
 
-            $data['name']       = $name;
-            $data['time']       = $time;
-            $data['lecture']    = $lecture;
-            $data['description']= $description;
+            $data['name']           = $name;
+            $data['time']           = $time;
+            $data['main_lecture']   = $main_lecture;
+            $data['second_lecture'] = $second_lecture;
+            $data['description']    = $description;
+            $data['status']         = $status;
 
             if( $this->practices_model->tambah( $data ) )
             {
@@ -68,7 +73,7 @@ class Practices extends Assistant_Controller {
     {
         $this->form_validation->set_rules('name', 'Nama', 'required');
         $this->form_validation->set_rules('time', 'Waktu Pelaksaan', 'required');
-        $this->form_validation->set_rules('lecture', 'Dosen Pengampu', 'required');
+        $this->form_validation->set_rules('main_lecture', 'Dosen Pengampu', 'required');
         $this->form_validation->set_rules('description', 'Deskripsi', 'required');
 
         $alert = 'error';
@@ -78,13 +83,17 @@ class Practices extends Assistant_Controller {
             $id                 = $this->input->post('id');
             $name               = $this->input->post('name');
             $time               = $this->input->post('time');
-            $lecture            = $this->input->post('lecture');
+            $second_lecture     = $this->input->post('second_lecture');
+            $main_lecture       = $this->input->post('main_lecture');
             $description        = $this->input->post('description');
+            $status             = $this->input->post('status');
 
-            $data['name']       = $name;
-            $data['time']       = $time;
-            $data['lecture']    = $lecture;
-            $data['description']= $description;
+            $data['name']           = $name;
+            $data['time']           = $time;
+            $data['second_lecture'] = $second_lecture;
+            $data['main_lecture']   = $main_lecture;
+            $data['description']    = $description;
+            $data['status']         = $status;
             
             if( $this->practices_model->ubah( $id, $data ) )
             {

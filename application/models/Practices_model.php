@@ -31,10 +31,11 @@ class Practices_model extends CI_Model {
         return false;
     }
 
-    public function practices( $id = NULL )
+    public function practices( $id = NULL, $status = NULL )
     {
         $this->db->select( $this->_table . '.*' );
         if( $id ) $this->db->where( $this->_table . '.id', $id);
+        if( is_numeric( $status ) ) $this->db->where( $this->_table . '.status', $status);
         return $this->db->get( $this->_table );
     }
 }

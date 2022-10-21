@@ -44,6 +44,10 @@
                               <label for="">File</label>
                               <input type="file" class="form-control" name="file" id="file">
                             </div>
+                            <div class="form-group">
+                              <label for="">Deskripsi</label>
+                              <textarea name="description" id="description" class="form-control"></textarea>
+                            </div>
                           </div>
                           <div class="modal-footer justify-content-between">
                             <button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Batal</button>
@@ -60,6 +64,7 @@
                       <th>No.</th>
                       <th>Nama</th>
                       <th>Jenis Dokumen</th>
+                      <th>Deskripsi</th>
                       <th>Aksi</th>
                     </thead>
                     <tbody>
@@ -68,6 +73,7 @@
                           <td><?= $number ?></td>
                           <td><?= $data->name ?></td>
                           <td><?= $types[$data->type] ?></td>
+                          <td><?= $data->description ?></td>
                           <td>
                             <a download href="<?= base_url('uploads/dokumen/') . $data->file ?>" class="btn btn-sm btn-outline-secondary">Download</a>
                             <button class="btn btn-sm btn-outline-primary" type="button" data-toggle="modal" data-target="#modal-ubah-dokumen-<?= $data->id ?>">Ubah</button>
@@ -98,6 +104,10 @@
                                       <div class="form-group">
                                         <label for="">File</label>
                                         <input type="file" class="form-control" name="file" id="file">
+                                      </div>
+                                      <div class="form-group">
+                                        <label for="">Deskripsi</label>
+                                        <textarea name="description" id="description" class="form-control"><?= $data->description ?></textarea>
                                       </div>
                                     </div>
                                     <div class="modal-footer justify-content-between">

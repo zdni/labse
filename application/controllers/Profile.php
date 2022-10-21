@@ -9,6 +9,7 @@ class Profile extends User_Controller {
         $this->load->model([
             'users_model',
             'hr_model',
+            'positions_model'
         ]);
 		$this->load->library('upload');
         $this->data['menu_id'] = 'profile_user_index';
@@ -17,6 +18,13 @@ class Profile extends User_Controller {
 	public function index()
     {
         $this->data['data'] = $this->users_model->user( $this->session->userdata('user_id') )->row();
+        $positions = $this->positions_model->positions()->result();
+        
+        $datas = [];
+        foreach ($positions as $position) {
+            $datas[$position->id] =$position->name;    
+        }
+        $this->data['positions'] = $datas;
         
         $this->data['page'] = 'Profil';
         $this->render('admin/user');

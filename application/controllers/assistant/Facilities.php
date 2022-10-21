@@ -82,6 +82,7 @@ class Facilities extends Assistant_Controller {
         $this->form_validation->set_rules('name', 'Nama', 'required');
         $this->form_validation->set_rules('qty', 'Jumlah', 'required');
         $this->form_validation->set_rules('state', 'Keadaan', 'required');
+        $this->form_validation->set_rules('year', 'Tahun Pengadaan', 'required');
         $this->form_validation->set_rules('description', 'Deskripsi', 'required');
 
         $alert = 'error';
@@ -89,11 +90,13 @@ class Facilities extends Assistant_Controller {
         if ( $this->form_validation->run() )
         {
             $name           = $this->input->post('name');
+            $year           = $this->input->post('year');
             $qty            = $this->input->post('qty');
             $state          = $this->input->post('state');
             $description    = $this->input->post('description');
 
             $data['name']           = $name;
+            $data['year']           = $year;
             $data['qty']            = $qty;
             $data['state']          = $state;
             $data['description']    = $description;
@@ -125,6 +128,7 @@ class Facilities extends Assistant_Controller {
     {
         $this->form_validation->set_rules('name', 'Nama', 'required');
         $this->form_validation->set_rules('qty', 'Jumlah', 'required');
+        $this->form_validation->set_rules('year', 'Tahun Pengadaan', 'required');
         $this->form_validation->set_rules('state', 'Keadaan', 'required');
         $this->form_validation->set_rules('description', 'Deskripsi', 'required');
 
@@ -134,11 +138,13 @@ class Facilities extends Assistant_Controller {
         {
             $id             = $this->input->post('id');
             $name           = $this->input->post('name');
+            $year           = $this->input->post('year');
             $qty            = $this->input->post('qty');
             $state          = $this->input->post('state');
             $description    = $this->input->post('description');
 
             $data['name']           = $name;
+            $data['year']           = $year;
             $data['qty']            = $qty;
             $data['state']          = $state;
             $data['description']    = $description;

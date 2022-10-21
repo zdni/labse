@@ -42,6 +42,12 @@
                       </div>
                       <div class="col-md-6 col-12">
                         <div class="form-group">
+                          <label for="">Tahun Pengadaan</label>
+                          <input type="number" class="form-control" name="year" id="year" value="<?= ( $data && isset($data->year) ) ?  $data->year : '' ?>" required>
+                        </div>
+                      </div>
+                      <div class="col-md-6 col-12">
+                        <div class="form-group">
                           <label for="">Deskripsi</label>
                           <textarea name="description" id="description" class="form-control"><?= ( $data && isset($data->description) ) ?  $data->description : '' ?></textarea>
                         </div>

@@ -37,12 +37,23 @@
                               <input type="text" class="form-control" name="time" id="time">
                             </div>
                             <div class="form-group">
-                              <label for="">Dosen Pengampu</label>
-                              <input type="text" class="form-control" name="lecture" id="lecture">
+                              <label for="">Dosen Pengampu Utama</label>
+                              <input type="text" class="form-control" name="main_lecture" id="main_lecture">
+                            </div>
+                            <div class="form-group">
+                              <label for="">Dosen Pengampu Kedua</label>
+                              <input type="text" class="form-control" name="second_lecture" id="second_lecture">
                             </div>
                             <div class="form-group">
                               <label for="">Deskripsi</label>
                               <textarea name="description" id="description" class="form-control"></textarea>
+                            </div>
+                            <div class="form-group">
+                              <select name="status" id="status" class="form-control">
+                                <?php foreach ($status as $key => $value) { ?>
+                                  <option value="<?= $key ?>"><?= $value ?></option>
+                                <?php } ?>
+                              </select>
                             </div>
                           </div>
                           <div class="modal-footer justify-content-between">
@@ -60,8 +71,10 @@
                       <th>No.</th>
                       <th>Nama</th>
                       <th>Waktu</th>
-                      <th>Dosen</th>
+                      <th>Dosen Utama</th>
+                      <th>Dosen Kedua</th>
                       <th>Deskripsi</th>
+                      <th>Status</th>
                       <th>Aksi</th>
                     </thead>
                     <tbody>
@@ -70,8 +83,10 @@
                           <td><?= $number ?></td>
                           <td><?= $data->name ?></td>
                           <td><?= $data->time ?></td>
-                          <td><?= $data->lecture ?></td>
+                          <td><?= $data->main_lecture ?></td>
+                          <td><?= $data->second_lecture ?></td>
                           <td><?= $data->description ?></td>
+                          <td><?= $status[$data->status] ?></td>
                           <td>
                             <button class="btn btn-sm btn-outline-primary" type="button" data-toggle="modal" data-target="#modal-ubah-praktikum-<?= $data->id ?>">Ubah</button>
                             <div class="modal fade" id="modal-ubah-praktikum-<?= $data->id ?>">
@@ -95,12 +110,23 @@
                                         <input type="text" class="form-control" name="time" id="time" value="<?= $data->time ?>">
                                       </div>
                                       <div class="form-group">
-                                        <label for="">Dosen Pengampu</label>
-                                        <input type="text" class="form-control" name="lecture" id="lecture" value="<?= $data->lecture ?>">
+                                        <label for="">Dosen Pengampu Utama</label>
+                                        <input type="text" class="form-control" name="main_lecture" id="main_lecture" value="<?= $data->main_lecture ?>">
+                                      </div>
+                                      <div class="form-group">
+                                        <label for="">Dosen Pengampu Kedua</label>
+                                        <input type="text" class="form-control" name="second_lecture" id="second_lecture" value="<?= $data->second_lecture ?>">
                                       </div>
                                       <div class="form-group">
                                         <label for="">Deskripsi</label>
                                         <textarea name="description" id="description" class="form-control"><?= $data->description ?></textarea>
+                                      </div>
+                                      <div class="form-group">
+                                        <select name="status" id="status" class="form-control">
+                                          <?php foreach ($status as $key => $value) { ?>
+                                            <option <?php if( $key == $data->status )?> value="<?= $key ?>"><?= $value ?></option>
+                                          <?php } ?>
+                                        </select>
                                       </div>
                                     </div>
                                     <div class="modal-footer justify-content-between">

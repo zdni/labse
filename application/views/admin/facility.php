@@ -26,6 +26,9 @@
                   <strong><i class="fas fa-flag mr-1"></i> Keadaan</strong>
                   <p class="text-muted"><?= ( $data && isset($data->state) ) ?  ucwords($data->state) : '' ?></p>
                   <hr>
+                  <strong><i class="fas fa-flag mr-1"></i> Tahun Pengadaan</strong>
+                  <p class="text-muted"><?= ( $data && isset($data->year) ) ?  ucwords($data->year) : '' ?></p>
+                  <hr>
                   <strong><i class="fas fa-tag mr-1"></i> Keterangan</strong>
                   <p class="text-muted"><?= ( $data && isset($data->description) ) ?  ucwords($data->description) : '' ?></p>
                 </div>
