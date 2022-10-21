@@ -178,6 +178,9 @@
         <?php else: ?>
           <h3>Belum ada Jadwal Praktikum</h3>
         <?php endif; ?>
+        <!-- <div class="col-12">
+          <div id="map" style="width: 100%; height: 500px; color:black;"></div>
+        </div> -->
       </div>
     </div>
   </section>

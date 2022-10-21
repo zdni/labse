@@ -91,7 +91,8 @@
 					</div>
 
 					<div class="col-lg-3 col-md-6">
-						
+            <div id="map" style="width: 100%; height: 100%; color:black;"></div>
+            <a class="btn btn-sm btn-outline-success mt-3" href="https://www.google.com/maps/@<?= $contact['map'] ?>,19z" target="blank">Buka di Map</a>
 					</div>
 				</div>
 			</div>
@@ -111,12 +112,17 @@
 			</div>
 		</div>
 		<!-- End Copy Right Area -->
+
+    <span id="lat"><?= $contact['lat'] ?></span>
+    <span id="lng"><?= $contact['lng'] ?></span>
 		
 		<div class="go-top">
 			<i class="ri-arrow-up-s-fill"></i>
 			<i class="ri-arrow-up-s-fill"></i>
 		</div>
 		
+    <!-- <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>  -->
+    <script src="https://unpkg.com/leaflet@1.9.2/dist/leaflet.js" integrity="sha256-o9N1jGDZrf5tS+Ft4gbIK7mYMipq9lqpVJ91xHSyKhg=" crossorigin=""></script>
     <script src="<?= base_url('assets/') ?>client/js/jquery.min.js"></script>
     <script src="<?= base_url('assets/') ?>client/js/bootstrap.bundle.min.js"></script>
 		<script src="<?= base_url('assets/') ?>client/js/meanmenu.min.js"></script>
@@ -132,5 +138,22 @@
 		<script src="<?= base_url('assets/') ?>client/js/contact-form-script.js"></script>
 		<script src="<?= base_url('assets/') ?>client/js/ajaxchimp.min.js"></script>
 		<script src="<?= base_url('assets/') ?>client/js/custom.js"></script>
+    <script>
+      const lat = parseFloat(document.querySelector('#lat').innerHTML);
+      const lng = parseFloat(document.querySelector('#lng').innerHTML);
+      let map = L.map('map', {
+        center: [lat, lng],
+        zoom: 18,
+        zoomControl: false,
+        layers:[]
+      }); 
+      console.log( map )
+      L.tileLayer('https://mt1.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
+          opacity: 1.0, 
+          // maxZoom: 19,
+          attribution: 'WebGIS Trainning by Roni Haryadi'
+          // attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+      }).addTo(map);
+    </script>
   </body>
 </html>

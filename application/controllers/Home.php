@@ -23,7 +23,11 @@ class Home extends MY_Controller {
             'hours_of_rest'=> ( file_exists( './uploads/profil/hours_of_rest.html' ) )  ? file_get_contents( './uploads/profil/hours_of_rest.html' ): '',        
             'email'        => ( file_exists( './uploads/profil/email.html' ) )          ? file_get_contents( './uploads/profil/email.html' )        : '',        
             'address'      => ( file_exists( './uploads/profil/address.html' ) )        ? file_get_contents( './uploads/profil/address.html' )      : ''        
-        ];   
+        ];
+
+        $array_map = explode(',', $this->data['contact']['map']);
+        $this->data['contact']['lat'] = $array_map[0];
+        $this->data['contact']['lng'] = $array_map[1];
 	}
     
 	public function index()
