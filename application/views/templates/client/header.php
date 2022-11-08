@@ -9,6 +9,29 @@
 
   <!-- Start Header Area -->
   <header class="header-area">
+    <div class="top-header">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-6 col-md-6">
+            <ul class="header-left-content">
+              <li>
+                <i class="ri-time-line"></i>
+                Jam Operasional: <?= $contact['working_hours'] ?>
+              </li>
+            </ul>
+          </div>
+
+          <div class="col-lg-6 col-md-6">
+            <div class="header-right-content">
+              <div class="languages-switcher">
+                <i class="ri-time-line"></i>
+                Jam Istirahat: <?= $contact['hours_of_rest'] ?>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <!-- Start Navbar Area -->
     <div class="navbar-area">

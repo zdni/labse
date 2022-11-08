@@ -136,12 +136,12 @@ class Galleries extends Assistant_Controller {
 	{
 		$config['upload_path']          = './uploads/galeri/';
 		$config['overwrite']            = true;
-		$config['allowed_dates']        = 'png|jpg|jpeg';
+		$config['allowed_types']        = 'png|jpg|jpeg';
 		$config['max_size']             = 2048000;
 		$config['file_name']			= strtolower($title);
         
 		$this->upload->initialize( $config );
-		if (!$this->upload->do_upload('file')) {
+		if (!$this->upload->do_upload('image')) {
 			$this->session->set_flashdata('alert', 'error');   
 			$this->session->set_flashdata('message', $this->upload->display_errors());   
 			return redirect( base_url('assistant/galleries') );

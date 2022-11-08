@@ -79,35 +79,42 @@
   </section>
   <!-- End Check Your Website Area -->
 
-  <!-- Start Team Area -->
-  <section class="team-area pt-100 pb-70">
+  <!-- Start Blog Area -->
+  <section class="blog-area pt-100 pb-70">
     <div class="container">
       <div class="section-title">
-        <span>Asisten Laboratorium Software Engineering</span>
-        <h2>Yuk Kenalan dengan kami!</h2>
+        <span>Laboratorium Software Engineering mengadakan praktikum</span>
+        <h2>Jadwal Praktikum</h2>
       </div>
 
-      <div class="row">
-        <?php if( count($assistants) > 0 ): ?>
-          <?php foreach ($assistants as $assistant) { ?>
-            <div class="col-lg-4 col-md-6">
-              <div class="single-team-member">
-                <img src="<?= base_url('uploads/users/') . $assistant->user_image ?>" alt="Image">
-    
-                <div class="team-content">
-                  <h3><?= $assistant->user_name ?></h3>
-                  <span><?= $assistant->email ?></span>
-                </div>
+      <div class="row justify-content-md-center">
+        <?php if( count($practices) > 0 ): ?>
+          <?php foreach ($practices as $practice) { ?>
+            <div class="col-lg-3 col-md-6">
+              <div class="single-blog">
+                <a href="#">
+                  <img src="<?= base_url('uploads/practices/practice.jpg') ?>" alt="Image">
+                </a>
+                <span>
+                  <i class="ri-calendar-line"></i>
+                  <?= $practice->time ?>
+                </span>
+                <h3>
+                  <?= $practice->name ?>
+                </h3>
+                <p>
+                  <?= $practice->name ?>
+                </p>
               </div>
             </div>
           <?php } ?>
         <?php else: ?>
-          <p>Belum ada data Galeri Kegiatan</p>
+          <h3>Belum ada Jadwal Praktikum</h3>
         <?php endif; ?>
       </div>
     </div>
   </section>
-  <!-- End Team Area -->
+  <!-- End Blog Area -->
 
   <!-- Start Marketing Area -->
   <section class="marketing-area bg-color pt-100 pb-70">
@@ -146,42 +153,32 @@
   </section>
   <!-- End Marketing Area -->
 
-  <!-- Start Blog Area -->
-  <section class="blog-area pt-100 pb-70">
+  <!-- Start Team Area -->
+  <section class="team-area pt-100 pb-70">
     <div class="container">
       <div class="section-title">
-        <span>Laboratorium Software Engineering mengadakan praktikum</span>
-        <h2>Jadwal Praktikum</h2>
+        <span>Asisten Laboratorium Software Engineering</span>
+        <h2>Yuk Kenalan dengan kami!</h2>
       </div>
 
-      <div class="row justify-content-md-center">
-        <?php if( count($practices) > 0 ): ?>
-          <?php foreach ($practices as $practice) { ?>
+      <div class="row">
+        <?php if( count($assistants) > 0 ): ?>
+          <?php foreach ($assistants as $assistant) { ?>
             <div class="col-lg-4 col-md-6">
-              <div class="single-blog">
-                <a href="#">
-                  <img src="<?= base_url('uploads/practices/practice.jpg') ?>" alt="Image">
-                </a>
-                <span>
-                  <i class="ri-calendar-line"></i>
-                  <?= $practice->time ?>
-                </span>
-                <h3>
-                  <?= $practice->name ?>
-                </h3>
-                <p>
-                  <?= $practice->name ?>
-                </p>
+              <div class="single-team-member">
+                <img src="<?= base_url('uploads/users/') . $assistant->user_image ?>" alt="Image">
+    
+                <div class="team-content">
+                  <h3><?= $assistant->user_name ?></h3>
+                  <span><?= $assistant->email ?></span>
+                </div>
               </div>
             </div>
           <?php } ?>
         <?php else: ?>
-          <h3>Belum ada Jadwal Praktikum</h3>
+          <p>Belum ada data Asisten</p>
         <?php endif; ?>
-        <!-- <div class="col-12">
-          <div id="map" style="width: 100%; height: 500px; color:black;"></div>
-        </div> -->
       </div>
     </div>
   </section>
-  <!-- End Blog Area -->
+  <!-- End Team Area -->

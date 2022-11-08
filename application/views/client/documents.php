@@ -10,7 +10,7 @@
               <div class="col-lg-3 col-md-6">
                 <div class="single-pricing">
                   <div class="pricing-title">
-                    <h3><?= $types[$data->tyoe] ?></h3>
+                    <h3><?= $types[$data->type] ?></h3>
                     <h2><?= $data->name ?></h2>
                     <span><?= $data->description ?></span>
                   </div>
